@@ -39,28 +39,34 @@
         \label{fig:estandar}
     \end{figure}
 
-    Como se muestra en la imagen \ref{fig:estandar_t568a_vs_t568b}, existen dos estándares para la disposición de los cables en un conector RJ45: T568A y T568B. Ambos estándares son ampliamente utilizados en la actualidad y son compatibles entre sí.
-    Sin embargo la principal diferencia entre estos dos estándares es la posición de los pares de cables naranja y verde.
+    Como se muestra en la imagen \ref{fig:estandar_t568a_y_t568b}, existen dos estándares para la disposición de los cables en un conector RJ45: T568A y T568B. Ambos estándares son ampliamente utilizados en la actualidad y son compatibles entre sí.
+    Sin embargo la principal diferencia entre estos dos estándares es la posición de los pares de cables naranja y verde (\cite{Cruzado}).
 
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.6\textwidth]{img/T568AvsT568B.jpg}
-        \caption{Estándar T568A vs T568B.}
-        \label{fig:estandar_t568a_vs_t568b}
+        \includegraphics[width=0.6\textwidth]{img/rj45.jpg}
+        \caption{Estándar T568A y T568B.}
+        \label{fig:estandar_t568a_y_t568b}
     \end{figure}
 
+    \subsection{Cable recto}
+    Ambos extremos utilizan el mismo estándar de cableado: T-568A o T-568B. Por lo tanto, ambos extremos (conector A y conector B) del cable directo tienen una disposición de cables del mismo color como se muestra en la siguiente imagen \ref{fig:cable_recto}. Estos cables son ampliamente utilizados para conectar ordenadores a switches, concentradores o enrutadores.
+    
     \begin{figure}[H]
         \centering
-        \begin{minipage}[b]{0.45\linewidth}
-            \includegraphics[width=\linewidth]{img/T568A.png}
-            \caption{Estándar T568A.}
-            \label{fig:estandar_t568a}
-        \end{minipage}
-        \begin{minipage}[b]{0.45\linewidth}
-            \includegraphics[width=\linewidth]{img/T568B.png}
-            \caption{Estándar T568B.}
-            \label{fig:estandar_t568b}
-        \end{minipage}
+        \includegraphics[width=0.6\textwidth]{img/cable_recto.jpg}
+        \caption{Cable recto.}
+        \label{fig:cable_recto}
+    \end{figure}
+
+    \subsection{Cable cruzado}
+    En un cable cruzado, los cables en un extremo del cable siguen el estándar T-568A, mientras que los cables en el otro extremo siguen el estándar T-568B. Ambos lados (conector A y conector B) del cable cruzado tendrán una disposición de cables de diferente color; los cables que salen del conector A deben coincidir con sus pins correspondientes en el conector B, tal y como se muestra en la imagen \ref{fig:cable_cruzado}. Los cables cruzados se usan principalmente para conectar dos enrutadores, ordenadores o concentradores (hub).
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{img/cable_cruzado.jpg}
+        \caption{Cable cruzado.}
+        \label{fig:cable_cruzado}
     \end{figure}
 
     \newpage
