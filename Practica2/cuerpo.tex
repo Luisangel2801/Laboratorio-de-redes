@@ -26,15 +26,14 @@
             \label{fig:ip_windows}
         \end{figure}
 
-        \hl{Para obtener la dirección MAC de un equipo en Windows abrimos la terminal y ejecutamos el comando \texttt{ipconfig -all} y se mostrará la dirección MAC como se muestra en la }
-        %Figura~\ref{fig:mac_windows}. La dirección MAC que se obtuvo de la PC1 fue \texttt{00-0C-29-3D-3A-6A}.}
+        Para obtener la dirección MAC de un equipo en Windows abrimos la terminal y ejecutamos el comando \texttt{ipconfig -all} y se mostrará la dirección MAC como se muestra en la Figura~\ref{fig:mac_windows}. La dirección MAC que se obtuvo de la PC1 fue \texttt{64:00:6A:44:B6:0A}.
 
-        %\begin{figure}[H]
-        %    \centering
-        %    \includegraphics[width=0.6\textwidth]{img/direccion_MAC_windows.png}
-        %    \caption{Obtención de la Dirección MAC en Windows}
-        %    \label{fig:mac_windows}
-        %\end{figure}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.6\textwidth]{img/direccion_MAC_windows.PNG}
+            \caption{Obtención de la Dirección MAC en Windows}
+            \label{fig:mac_windows}
+        \end{figure}
 
         En la PC2 se inició con el sistema operativo \textbf{Linux} y se realizó el cambio de la dirección IP a \texttt{192.168.0.13} con la puerta de enlace \texttt{192.168.0.1}. Como se muestra en la Figura~\ref{fig:ip_linux}.
 
@@ -53,14 +52,14 @@
             \label{fig:mac_linux}
         \end{figure}
 
-        Los datos obtenidos de ambas PC's se muestran en la Tabla~\ref{tab:tabla_equipos}.
+        Los datos obtenidos de ambas PC's se muestran en el Cuadro~\ref{tab:tabla_equipos}.
 
         \begin{table}[H]
             \centering
             \begin{tabular}{c|c|c|c}
                 \textbf{Integrante} & \textbf{Equipo} & \textbf{IP} & \textbf{MAC} \\
                 \hline
-                Diego Alexis Moreno Valero & PC1 & 192.168.0.14 & mac \\
+                Diego Alexis Moreno Valero & PC1 & 192.168.0.14 & 64:00:6A:44:B6:0A \\
                 Luis Ángel Cruz Díaz & PC2 & 192.168.0.13 & 64:00:6A:44:A5:DF \\
             \end{tabular}
             \caption{Tabla de Equipos}
@@ -91,7 +90,8 @@
                 \item En el punto (a) se empleó el comando \texttt{arp} con el parámetro \texttt{-d} para borrar la tabla ARP. 
                 \item En el punto (b) se empleó el comando \texttt{arp} con el parámetro \texttt{-a} para mostrar la tabla ARP.
             \end{enumerate}
-            \item \hl{Explique con detalle el contenido de la tabla.}
+            \item \textbf{Explique con detalle el contenido de la tabla.}\\
+            Podemos observar en la Figura~\ref{fig:tabla_arp} que la tabla ARP contiene la dirección IP y la dirección MAC de los equipos que han sido contactados recientemente por la PC1.
         \end{enumerate}
 
     \subsection{Tarea 3.}
