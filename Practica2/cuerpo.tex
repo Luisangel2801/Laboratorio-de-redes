@@ -1,6 +1,16 @@
 \setcounter{page}{1}
 
 \section{Introducción}
+    En las redes de comunicación, la capacidad de capturar y analizar son cosas esenciales para la comprender el comportamiento de los dispositivos y optimizar la comunicación en una red local (LAN). El monitorear y evaluar el tráfico de red puede servirnos al momento de la detección de los problemas de conectividad, diagnosticar algunos fallos en la configuración de los dispositivos que están conectados a la red, de forma que podemos asegurar un flujo eficiente y seguro de los datos.
+
+    Para esta práctica, utilizaremos una herramienta llamada \textbf{Wireshark}  ampliamente usada en el análisis de tráfico en el campo de redes. Wireshark permite capturar y examinar los datos intercambiados entre dos computadores conectados por una (LAN). A través de las capturas, se va a buscar comprender como funcionan los protocolos \textbf{ARP} e \textbf{ICMP} y como estos protocolos nos facilitan la resolución de direcciones y la comunicación entre dispositivos conectados a la red.
+
+    El propósito de esta práctica es el análisis y familiarización con el uso de herramientas como la de Wireshark, para la interpretación de los protocolos ARP y analizar los efectos del comando ping entre dispositivos LAN. Adicionalmente, se busca observar los cambios en la caché ARP tras el intercambio de paquetes y comprender el flujo de tráfico unicast y multicast, así como el intercambio en las estructuras de la red.
+
+    Además de la captura y el análisis de tráfico, es importante entender cómo se comunican los distintos protocolos que conforman la comunicación en redes locales, de manera que interactúen entre sí para garantizar una conectividad eficiente. Tanto el protocolo ARP como el ICMP juegan un papel importante para la resolución de las direcciones así como para la gestión de errores y el diagnostico de problemas de conectividad, como se observa con el uso del comando ping
+
+    A lo largo de este informe, se detallarán los pasos seguidos para la configuración y la captura del tráfico, así mismo, los resultados obtenidos y la interpretación de estos. Este proceso nos permitirá habilidades fundamentales en el análisis del tráfico en la red y en la resolución de problemas que sean comunes en este tipo de redes locales.
+
 \section{Objetivos}
     \begin{itemize}
         \item Emplear la herramienta \textbf{Wireshark} para realizar capturas y análisis de tráfico en una LAN.
@@ -43,7 +53,7 @@
             \caption{Configuración de la Dirección IP en Linux}
             \label{fig:ip_linux}
         \end{figure}
-
+        
         Para obtener la dirección MAC en la PC2 con Linux nos dirigimos a configuración de red y seleccionamos la interfaz de red deseada, en este caso \textbf{Ethernet} y se mostrará la dirección MAC como se muestra en la Figura~\ref{fig:mac_linux}. La dirección MAC que se obtuvo de la PC2 fue \texttt{64:00:6A:44:A5:DF}.
         \begin{figure}[H]
             \centering
@@ -90,31 +100,41 @@
                 \item En el punto (a) se empleó el comando \texttt{arp} con el parámetro \texttt{-d} para borrar la tabla ARP. 
                 \item En el punto (b) se empleó el comando \texttt{arp} con el parámetro \texttt{-a} para mostrar la tabla ARP.
             \end{enumerate}
-            \item \textbf{Explique con detalle el contenido de la tabla.}\\
-            Podemos observar en la Figura~\ref{fig:tabla_arp} que la tabla ARP contiene la dirección IP y la dirección MAC de los equipos que han sido contactados recientemente por la PC1.
-        \end{enumerate}
+            \item \textbf{Explique con detalle el contenido de la tabla.}
+            La tabla ARP muestra las direcciones IP y las direcciones físicas (MAC) que están asignadas en el sistema. En esta tabla, se observan varias interfaces (192.168.100.1, 192.168.0.14, 192.168.88.1 y 192.168.56.1), lo cual indica que el dispositivo cuenta con múltiples conexiones de red o adaptadores.
+            
+            Las direcciones IP presentadas corresponden a los dispositivos en la red con los cuales el dispositivo local ha interactuado o se ha comunicado recientemente. Todas las entradas de la tabla ARP son de tipo \textbf{estático}, lo que significa que estas asociaciones entre direcciones IP y MAC fueron configuradas manualmente o están asignadas de forma permanente, en lugar de ser asignadas dinámicamente por el sistema operativo.
+            
+            Asimismo, en esta tabla se incluyen direcciones IP de tipo multicast (como 224.0.0.22 y 239.255.255.250), las cuales están asociadas a direcciones MAC específicas. Esto permite que determinados servicios o protocolos de red funcionen correctamente.
 
+            
+        \end{enumerate}
+        
     \subsection{Tarea 3.}
-        \paragraph{Paso 1.}
-        Arranquen en la PC1 \textbf{Wireshark} para capturar el tráfico en su interfaz ethernet empleando los filtros adeacuados (ARP).
-        \paragraph{Paso 2.}
-        Realice el ping de la PC2 a la PC1.
-        \begin{enumerate}
-            \item ¿Cuál es el comando y los parámetros empleados?\\
-            Una vez terminado el ping, interrumpan la captural del Wireshark y guarde la captura en un archivo (utilicen como nombre del archivo captura1.cap)
-            Compruebe el estado de las cachés del ARP en la PC.
-            \item Consulte la tabla ARP y analice si hubo cambios con los valores obtenidos en el paso 1 de la tarea 2; explique el contenido de la tabla.
-        \end{enumerate}
-        \paragraph{Paso 3.}
-        Configure los filtros para capturar toda la información que se genere. Envíe el ping de la PC2 a la PC1 y al finalizar guarde el archivo como captura2.cap.
+    \paragraph{Paso 1.}
+    Arranquen en la PC1 \textbf{Wireshark} para capturar el tráfico en su interfaz ethernet empleando los filtros adeacuados (ARP).
+    \paragraph{Paso 2.}
+    Realice el ping de la PC2 a la PC1.
+    \begin{enumerate}
+        \item ¿Cuál es el comando y los parámetros empleados?\\
+        Una vez terminado el ping, interrumpan la captural del Wireshark y guarde la captura en un archivo (utilicen como nombre del archivo captura1.cap)
+        Compruebe el estado de las cachés del ARP en la PC.
+        \item Consulte la tabla ARP y analice si hubo cambios con los valores obtenidos en el paso 1 de la tarea 2; explique el contenido de la tabla.
+    \end{enumerate}
+    \paragraph{Paso 3.}
+    Configure los filtros para capturar toda la información que se genere. Envíe el ping de la PC2 a la PC1 y al finalizar guarde el archivo como captura2.cap.
     \subsection{Tarea 4.}
-        \paragraph{Paso 1.}
-        Con Wireshark cargue cada archivo capturado y explique los resultados obtenidos.
-
-\section{Conclusiones}
-
-% --- Para agregar un apéndice
-%\newpage
+    \paragraph{Paso 1.}
+    Con Wireshark cargue cada archivo capturado y explique los resultados obtenidos.
+    \begin{enumerate}
+        \item los campos Ethernet y ARP (peticion y respuesta; archivo: captura)
+        \item ICMP(peticion y respuesta; archivos: captura2)
+    \end{enumerate}
+    
+    \section{Conclusiones}
+    
+    % --- Para agregar un apéndice
+    %\newpage
 %\appendix
 %\appendixpage
 %\addappheadtotoc
