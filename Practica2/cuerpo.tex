@@ -155,10 +155,10 @@
         \end{figure}
     \subsection{Tarea 4.}
         \paragraph{Paso 1.}
-        Con Wireshark cargue cada archivo capturado y explique los resultados obtenidos.
+        \textbf{Con Wireshark cargue cada archivo capturado y explique los resultados obtenidos.}
 
         \begin{enumerate}
-            \item los campos Ethernet y ARP (peticion y respuesta; archivo: captura)
+            \item \textbf{los campos Ethernet y ARP (peticion y respuesta; archivo: captura)}
             
             En la imagen se puede observar cómo los campos Ethernet contienen las Direcciones MAC de los dispositivos de origen, además de los dispositivos de destino. En este caso el dispositivo de origen tiene la dirección MAC \textbf{64:00:6a:44:b6:0a} y el destino suele ser \textbf{Broadcast} ya que por el método ARP suele enviar la información a todos los dispositivos.
             \begin{figure}[H]
@@ -175,7 +175,7 @@
                 \caption{Captura de las tramas de la peticion ARP}
                 \label{fig:peticionARP}
             \end{figure}
-            \item ICMP(peticion y respuesta; archivos: captura2)
+            \item \textbf{ICMP(peticion y respuesta; archivos: captura2)}
             
             En la captura podemos observar como los paquetes tienen el protocolo ICMP para la comunicación de los dispositivos mediante el ping estas solicitudes y respuestas se envían entre las IP 192.168.0.13 y 192.168.0.14. Cada solicitud y respuesta tiene un identificador (id) y un número de secuencia (seq), que nos ayuda a rastrear el orden de los paquetes.
 
@@ -193,10 +193,9 @@
     \section{Conclusiones}
 
     \begin{itemize}
-        \item Luis Ángel Cruz Díaz - 2183038433 \\
-        
-        \item Diego Alexis Moreno Valero - 2243900185
-        \item 
+        \item \textbf{Luis Ángel Cruz Díaz - 2183038433} \\
+        Se puede concluir que el uso de herramientas como Wireshark es fundamental para el análisis de tráfico en redes locales, ya que nos permite capturar y examinar los datos intercambiados entre los dispositivos conectados a la red. A través de la captura de paquetes, se puede observar el funcionamiento de los protocolos ARP e ICMP, así como el intercambio de mensajes entre los dispositivos.
+        \item \textbf{Diego Alexis Moreno Valero - 2243900185}\\
         En esta práctica se logró comprender el funcionamiento de los protocolos ARP e ICMP y su importancia en las redes locales. A través del uso de Wireshark, se capturaron datos importantes, como el análisis del tráfico de paquetes generados por estos protocolos, lo que nos permitió visualizar de manera más detallada las tramas Ethernet y las peticiones/respuestas generadas durante el intercambio de mensajes.
         
     \end{itemize}
