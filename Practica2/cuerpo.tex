@@ -16,10 +16,6 @@
         \item Emplear la herramienta \textbf{Wireshark} para realizar capturas y análisis de tráfico en una LAN.
         \item Analizar el comportamiento de los mandatos \textbf{ping} en una comunicación vía red.
     \end{itemize}
-\section{Marco Teórico}
-    Ejemplo de cita~(\cite{buffett84}).
-
-\newpage
 \section{Desarrollo del Trabajo}
     \textbf{Para esta práctica se requiere del uso de dos PC's (las denominaremos como PC1 y PC2), ambos equipos conectados por enlace directo y con IP's estáticas.}
 
@@ -92,7 +88,7 @@
             \begin{figure}[H]
                 \centering
                 \includegraphics[width=0.6\textwidth]{img/tabla_ARP.PNG}
-                \caption{Tabla ARP}
+                \caption{Contenido de la tabla ARP}
                 \label{fig:tabla_arp}
             \end{figure}
             \item \textbf{¿Qué comandos y qué parametros se empleó en los puntos (a) y (b)?}
@@ -109,29 +105,83 @@
 
             
         \end{enumerate}
-        
     \subsection{Tarea 3.}
-    \paragraph{Paso 1.}
-    Arranquen en la PC1 \textbf{Wireshark} para capturar el tráfico en su interfaz ethernet empleando los filtros adeacuados (ARP).
+        \paragraph{Paso 1.}
+        \textbf{Arranquen en la PC1 \textbf{Wireshark} para capturar el tráfico en su interfaz ethernet empleando los filtros adeacuados (ARP).}
+
+        Para iniciar la captura de tráfico en la PC1, se abrió Wireshark y se seleccionó la interfaz de red Ethernet, se aplicó el filtro \texttt{arp} para capturar únicamente los paquetes ARP como se muestra en la Figura~\ref{fig:wireshark}.
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.6\textwidth]{img/Wireshark.PNG}
+            \caption{Wireshark}
+            \label{fig:wireshark}
+        \end{figure}
+
     \paragraph{Paso 2.}
-    Realice el ping de la PC2 a la PC1.
-    \begin{enumerate}
-        \item ¿Cuál es el comando y los parámetros empleados?\\
-        Una vez terminado el ping, interrumpan la captural del Wireshark y guarde la captura en un archivo (utilicen como nombre del archivo captura1.cap)
-        Compruebe el estado de las cachés del ARP en la PC.
-        \item Consulte la tabla ARP y analice si hubo cambios con los valores obtenidos en el paso 1 de la tarea 2; explique el contenido de la tabla.
-    \end{enumerate}
+        \textbf{Realice el ping de la PC2 a la PC1.}
+
+        Para realizar el ping de la PC2 a la PC1, se abrió la terminal de Linux y se ejecutó el comando \texttt{ping -c 4} seguido de la dirección IP de la PC1, como se muestra en la Figura~\ref{fig:ping}.
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.6\textwidth]{img/ping_linux.png}
+            \caption{Ping de la PC2 a la PC1}
+            \label{fig:ping}
+        \end{figure}
+
+        \begin{enumerate}
+            \item \textbf{¿Cuál es el comando y los parámetros empleados?}\\
+            Se empleó el comando \texttt{ping} con el parámetro \texttt{-c 4} para enviar 4 paquetes de ping a la PC1.
+            \item \textbf{Consulte la tabla ARP y analice si hubo cambios con los valores obtenidos en el paso 1 de la tarea 2; explique el contenido de la tabla.}\\
+            Al consultar la tabla ARP con el comando \texttt{arp -a} en la PC2, se observa que se han añadido nuevas entradas a la tabla ARP, las cuales corresponden a la dirección IP y MAC de la PC1. Esto se puede ver en la Figura~\ref{fig:tabla_arp_linux}. Esto se debe a que la PC2 ha enviado paquetes ARP a la PC1 para obtener su dirección MAC y poder establecer la comunicación entre ambos dispositivos. 
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.6\textwidth]{img/tablaARP_linux.png}
+                \caption{Tabla ARP en la PC2}
+                \label{fig:tabla_arp_linux}
+            \end{figure}
+        \end{enumerate}
     \paragraph{Paso 3.}
-    Configure los filtros para capturar toda la información que se genere. Envíe el ping de la PC2 a la PC1 y al finalizar guarde el archivo como captura2.cap.
+        \textbf{Configure los filtros para capturar toda la información que se genere. Envíe el ping de la PC2 a la PC1 y al finalizar guarde el archivo como captura2.cap.}
+
+        Se eliminó el filtro \texttt{arp} y se configuró Wireshark para capturar todo el tráfico en la red. Se realizó el ping de la PC2 a la PC1 y se guardó la captura con el nombre \texttt{captura2.cap}.
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.6\textwidth]{img/wireshark_datos.PNG}
+            \caption{Captura de Tráfico en Wireshark}
+            \label{fig:wireshark_datos}
+        \end{figure}
     \subsection{Tarea 4.}
-    \paragraph{Paso 1.}
-    Con Wireshark cargue cada archivo capturado y explique los resultados obtenidos.
-    \begin{enumerate}
-        \item los campos Ethernet y ARP (peticion y respuesta; archivo: captura)
-        \item ICMP(peticion y respuesta; archivos: captura2)
-    \end{enumerate}
+        \paragraph{Paso 1.}
+        Con Wireshark cargue cada archivo capturado y explique los resultados obtenidos.
+        \begin{enumerate}
+            \item los campos Ethernet y ARP (peticion y respuesta; archivo: captura)
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.6\textwidth]{img/ARP.PNG}
+                \caption{Captura del ARP en Wireshark}
+                \label{fig:ARP}
+            \end{figure}
+            \item ICMP(peticion y respuesta; archivos: captura2)
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.6\textwidth]{img/ICMP.PNG}
+                \caption{Captura del ICMP en Wireshark}
+                \label{fig:ICMP}
+            \end{figure}
+        \end{enumerate}
+        Para ello, muestren gráficamente en el reporte los resultados de Wireshark resaltando la información correspondiente a los campos de las tramas.
     
     \section{Conclusiones}
+
+    \begin{itemize}
+        \item Luis Ángel Cruz Díaz - 2183038433 \\
+        
+        \item Diego Alexis Moreno Valero - 2243900185 \\
+        
+    \end{itemize}
     
     % --- Para agregar un apéndice
     %\newpage
