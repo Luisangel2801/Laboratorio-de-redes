@@ -2,7 +2,14 @@
 
 
 \section{Introducción}
-    Ejemplo de cita~(\cite{buffett84}).
+    El diseño y la administración de redes de computadoras es componente esencial para garantizar la eficiencia, seguridad y escalabilidad de las infraestructuras tecnológicas que sustentan diversas organizaciones. En este contexto, el uso de Redes de Área Local Virtual (VLAN) ha surgido como una solución eficaz para optimizar la segmentación de redes, permitiendo no solo mejorar la administración de recursos, sino también establecer políticas de acceso y comunicación más robustas dentro de las organizaciones.
+
+    Este documento realizaremos una práctica orientada a la implementación de VLANs utilizando el simulador Cisco Packet Tracer, herramienta que permite diseñar, configurar y evaluar redes de manera segura y controlada. En esta práctica, se abordan conceptos fundamentales relacionados con la segmentación de redes, la asignación de direcciones IP y el establecimiento de comunicaciones específicas entre dispositivos.
+
+    En el trabajo se detallan tanto los objetivos como los pasos específicos llevados a cabo para configurar VLAN's que simulan entornos empresariales reales. Desde la definición de las configuraciones iniciales en los switches hasta la asignación de dispositivos a las respectivas VLAN's, cada etapa del proceso busca consolidar habilidades prácticas en el diseño de redes eficientes. Asimismo, se evalúa la correcta funcionalidad de la segmentación de red mediante pruebas que comprueban la conectividad entre los equipos.
+
+    Con este ejercicio, se pretende no solo reforzar los conocimientos teóricos adquiridos en el aula, sino también brindar una experiencia práctica que permita comprender de manera integral cómo implementar tecnologías de red avanzadas. A través de este enfoque, se fomenta una mayor capacidad para enfrentar desafíos reales en la administración y diseño de redes modernas.
+
 \section{Objetivos}
     \begin{itemize}
         \item Implementar VLAN de acceso.
@@ -138,6 +145,70 @@
 
         Cada PC se conectó a la página web del servidor correspondiente a su departamento, lo que indica que la configuración de las VLAN's fue exitosa.
 
+    \subsection{Configuración de las VLAN's en Cisco Packet Tracer PC2}
+        Para comenzar la configuración, en el simulador agregaremos un switch, 4 servidores y 12 PC's. Luego, conectaremos los dispositivos de acuerdo con el puerto asignado en la tabla 1, según la VLAN que se deba asignar. En la figura 7 se puede observar la configuración en el simulador.
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.7\textwidth]{img/Grafica.PNG}
+            \caption{Configuración en el simulador de la PC2}
+            \label{fig:Grafica}
+        \end{figure}
+
+        Para la configuración del Switch utilizaremos las líneas de código 1, 2, 3, 4 que se muestran en el documento para la creación de las VLAN's.
+
+        En la figura 8 se muestra la configuración de todos los VLAN's en el Switch del simulador Cisco Packet Tracer.
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.7\textwidth]{img/Captura.PNG}
+            \caption{Configuración de todos los VLAN's en Switch en el simulador de la PC2}
+            \label{fig:Captura}
+        \end{figure}
+
+        Para el siguiente paso conectaremos las PC's con el servidor de forma que nos aparezca un mensaje personalizado.
+
+        Desde la PC E1, el cual pertenece al departamento de Electrónica, se ingresó a la página web del servidor, cuya dirección IP es \texttt{1.0.0.10} como se muestra en la figura~\ref{fig:servidorElectronica}.
+
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.7\textwidth]{img/serverElectronica.PNG}
+            \caption{Página web del servidor de Electrónica}
+            \label{fig:servidorElectronica}
+        \end{figure}
+
+        Desde la PC S1, el cual pertenece al departamento de Sistemas, se ingresó a la página web del servidor, cuya dirección IP es \texttt{10.0.0.10} como se muestra en la figura~\ref{fig:servidorSistemas}.
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.7\textwidth]{img/Servidor de sistemas.PNG}
+            \caption{Página web del servidor de Sistemas}
+            \label{fig:servidorSistemas}
+        \end{figure}
+
+        Desde la PC C1, el cual pertenece al departamento de Civil, se ingresó a la página web del servidor, cuya dirección IP es \texttt{172.16.0.10} como se muestra en la figura~\ref{fig:servidorCivil}.
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.7\textwidth]{img/ServerCivil.PNG}
+            \caption{Página web del servidor de Civil}
+            \label{fig:servidorCivil}
+        \end{figure}
+
+        Desde la PC1, el cual pertenece al departamento de Eléctrica, se ingresó a la página web del servidor, cuya dirección IP es \texttt{192.168.6.10} como se muestra en la figura~\ref{fig:servidorElectrica}.
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.7\textwidth]{img/serverElectrica.PNG}
+            \caption{Página web del servidor de Eléctrica}
+            \label{fig:servidorElectrica}
+        \end{figure}
+
+        Cada PC se conectó a la página web del servidor correspondiente a su departamento, lo que indica que la configuración de las VLAN's fue exitosa.
+
+
+
     \subsection{Configuración de las VLAN's en el Switch}
         
 
@@ -189,7 +260,7 @@
 
 
 \section{Conclusiones}
-
+    En el desarrollo de esta práctica se logró aplicar los conceptos fundamentales sobre Redes de Área Local Virtual (VLAN), fortaleciendo habilidades en el diseño y configuración de redes segmentadas. A través de la herramienta Cisco Packet Tracer, configuramos VLAN's para distintos departamentos. Además, se asignaron dispositivos según las necesidades de cada grupo y se realizaron pruebas de conectividad que verificaron el éxito de la configuración.
 % --- Para agregar un apéndice
 %\newpage
 %\appendix
