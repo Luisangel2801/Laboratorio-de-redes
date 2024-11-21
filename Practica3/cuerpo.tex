@@ -210,8 +210,48 @@
 
 
     \subsection{Configuración de las VLAN's en el Switch}
-    \hl{Para comenzar, debemos conectar un extremo de un cable recto al puerto de consola del switch y el otro extremo al puerto serie del PC. Posteriormente, abrimos el programa de emulación de terminal y configuramos el puerto serie con los siguientes parámetros: 9600 baudios, 8 bits de datos, 1 bit de parada, sin bits de paridad y sin control de flujo. Una vez configurado, encendemos el switch y esperamos a que el sistema operativo IOS se cargue.}
+        Para comenzar, debemos conectar un extremo de un cable recto al puerto de consola del switch y el otro extremo al puerto serie del PC. Posteriormente, abrimos el programa de HyperTerminal y configuramos el puerto serie con los siguientes parámetros: 9600 baudios, 8 bits de datos, 1 bit de parada, sin bits de paridad y sin control de flujo, como se muestra en la figura~\ref{fig:HyperTerminal}.
 
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.7\textwidth]{img/HyperTerminal.jpg}
+            \caption{Configuración de HyperTerminal}
+            \label{fig:HyperTerminal}
+        \end{figure}
+
+        Posteriormente, encendemos el switch y presionamos la tecla Enter para acceder al modo de configuración. Luego, ingresamos el comando \texttt{enable} para acceder al modo privilegiado y el comando \texttt{configure t} para acceder al modo de configuración global. A continuación, creamos las VLAN's con los comandos mostrados en el código~\ref{lst:vlansSwitch}.
+
+        \begin{lstlisting}[language=bash, caption={Creación de las VLAN's en el Switch},label={lst:vlansSwitch}]
+            Switch> enable
+            Switch# configure terminal
+            Switch(config)# vlan 2
+            Switch(config-vlan)# name ELECTRONICA
+            Switch(config)# vlan 4
+            Switch(config-vlan)# name SISTEMAS
+            Switch(config)# vlan 6
+            Switch(config-vlan)# name CIVIL
+            Switch(config)# vlan 8
+            Switch(config-vlan)# name ELECTRICA
+        \end{lstlisting}
+
+        Luego, asignamos los puertos a las VLAN's creadas anteriormente con los siguientes comandos, como se puede ver en el código~\ref{lst:asignacionPuertos}.
+
+        \begin{lstlisting}[language=bash, caption={Asignación de puertos a las VLAN's en el Switch},label={lst:asignacionPuertos}]
+            Switch(config)# interface range fa0/2, fa0/4, fa0/6, fa0/8
+            Switch(config-if-range)# switchport mode access
+            Switch(config-if-range)# switchport access vlan 2
+            Switch(config)# interface range fa0/10, fa0/12, fa0/14, fa0/16
+            Switch(config-if-range)# switchport mode access
+            Switch(config-if-range)# switchport access vlan 4
+            Switch(config)# interface range fa0/1, fa0/3, fa0/5, fa0/7
+            Switch(config-if-range)# switchport mode access
+            Switch(config-if-range)# switchport access vlan 6
+            Switch(config)# interface range fa0/9, fa0/11, fa0/13, fa0/15
+            Switch(config-if-range)# switchport mode access
+            Switch(config-if-range)# switchport access vlan 8
+        \end{lstlisting}
+
+        Finalmente, verificamos la configuración de las VLAN's con el comando \texttt{show vlan} como se muestra en la figura~\ref{fig:vlansSwitch}. Y podemos observar que los puertos están asignados a las VLAN's correspondientes.
 
         \begin{figure}[H]
             \centering
@@ -220,6 +260,8 @@
             \label{fig:vlansSwitch}
         \end{figure}
 
+        Para comenzar, la PC1 y la PC2 se conectó a un puerto del switch el cual está asignada la VLAN por default, la PC1 se conectó al puerto 20 y la PC2 al puerto 21. Posteriormente, se asignó manualmente la dirección IP  a la PC1 el cual es \texttt{192.168.1.13/24} y a la PC2 el cual es \texttt{192.168.1.14/24}. Luego, se realizó un ping entre ambas PC's, como se muestra en la figura~\ref{fig:ping_default}. Esto se realizó para verificar la conectividad entre las PC's y el switch.
+
         \begin{figure}[H]
             \centering
             \includegraphics[width=0.7\textwidth]{img/ping_default.png}
@@ -227,14 +269,16 @@
             \label{fig:ping_default}
         \end{figure}
 
+        Posteriormente, se verificó el funcionamiento de la VLAN 2, para esto, la PC1 se conectó al puerto 2 del switch, y se le asignó manualmente la dirección IP \texttt{1.0.0.13/8}. Asimismo, la PC2 se conectó al puerto 4 del switch, y se le asignó manualmente la dirección IP \texttt{1.0.0.14/8}. Se realizó un ping entre ambas PC's, como se muestra en la figura~\ref{fig:ping_vlan2}.
 
         \begin{figure}[H]
             \centering
             \includegraphics[width=0.7\textwidth]{img/ping_vlan2.png}
             \caption{VLAN 2 en el Switch}
-            \label{fig:ping_vl an2}
+            \label{fig:ping_vlan2}
         \end{figure}
 
+        Para verificar el funcionamiento de la VLAN 4, la PC1 se conectó al puerto 10 del switch, y se le asignó manualmente la dirección IP \texttt{10.0.0.13/8}. Asimismo, la PC2 se conectó al puerto 12 del switch, y se le asignó manualmente la dirección IP \texttt{10.0.0.14/8}. Se realizó un ping entre ambas PC's, como se muestra en la figura~\ref{fig:ping_vlan4}.
 
         \begin{figure}[H]
             \centering
@@ -243,6 +287,7 @@
             \label{fig:ping_vlan4}
         \end{figure}
 
+        Para verificar el funcionamiento de la VLAN 6, la PC1 se conectó al puerto 1 del switch, y se le asignó la dirección IP \texttt{172.16.0.13/16}. Asimismo, la PC2 se conectó al puerto 3 del switch, y se le asignó manualmente la dirección IP \texttt{172.16.0.14/16}. Se realizó un ping entre ambas PC's, como se muestra en la figura~\ref{fig:ping_vlan6}.
 
         \begin{figure}[H]
             \centering
@@ -251,6 +296,8 @@
             \label{fig:ping_vlan6}
         \end{figure}
 
+        Finalmente, para verificar el funcionamiento de la VLAN 8, la PC1 se conectó al puerto 9 del switch, y se le asignó manualmente la dirección IP \texttt{192.168.6.13/24}. Asimismo, la PC2 se conectó al puerto 11 del switch, y se le asignó manualmente la dirección IP \texttt{192.168.6.14/24}. Se realizó un ping entre ambas PC's, como se muestra en la figura~\ref{fig:ping_vlan8}.
+
         \begin{figure}[H]
             \centering
             \includegraphics[width=0.7\textwidth]{img/ping_vlan8.png}
@@ -258,9 +305,14 @@
             \label{fig:ping_vlan8}
         \end{figure}
 
-
 \section{Conclusiones}
-    En el desarrollo de esta práctica se logró aplicar los conceptos fundamentales sobre Redes de Área Local Virtual (VLAN), fortaleciendo habilidades en el diseño y configuración de redes segmentadas. A través de la herramienta Cisco Packet Tracer, configuramos VLAN's para distintos departamentos. Además, se asignaron dispositivos según las necesidades de cada grupo y se realizaron pruebas de conectividad que verificaron el éxito de la configuración.
+    \begin{itemize}
+        \item Luis Ángel Cruz Díaz - 2183038433 \\
+        Esta práctica mostró como las VLAN's permiten segmentar una red física en múltiples redes lógicas, lo que ayuda al no permitir que los dispositivos de una VLAN se comuniquen con los de otra VLAN. Esto es util en entornos corporativos donde se necesita separar los departamentos para mejorar la seguridad y la administración de la red.
+        \item Diego Alexis Moreno Valero - 2243900185 \\
+        En el desarrollo de esta práctica se logró aplicar los conceptos fundamentales sobre Redes de Área Local Virtual (VLAN), fortaleciendo habilidades en el diseño y configuración de redes segmentadas. A través de la herramienta Cisco Packet Tracer, configuramos VLAN's para distintos departamentos. Además, se asignaron dispositivos según las necesidades de cada grupo y se realizaron pruebas de conectividad que verificaron el éxito de la configuración.
+    \end{itemize}
+    
 % --- Para agregar un apéndice
 %\newpage
 %\appendix
