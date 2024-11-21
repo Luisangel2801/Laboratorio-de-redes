@@ -4,7 +4,9 @@
 \section{Introducción}
     El diseño y la administración de redes de computadoras es componente esencial para garantizar la eficiencia, seguridad y escalabilidad de las infraestructuras tecnológicas que sustentan diversas organizaciones. En este contexto, el uso de Redes de Área Local Virtual (VLAN) ha surgido como una solución eficaz para optimizar la segmentación de redes, permitiendo no solo mejorar la administración de recursos, sino también establecer políticas de acceso y comunicación más robustas dentro de las organizaciones.
 
-    Este documento realizaremos una práctica orientada a la implementación de VLANs utilizando el simulador Cisco Packet Tracer, herramienta que permite diseñar, configurar y evaluar redes de manera segura y controlada. En esta práctica, se abordan conceptos fundamentales relacionados con la segmentación de redes, la asignación de direcciones IP y el establecimiento de comunicaciones específicas entre dispositivos.
+    Las VLAN's son una tecnología que permite dividir una red física en múltiples redes lógicas, lo que facilita la administración de dispositivos y la implementación de políticas de seguridad. Al segmentar una red en VLAN's, se pueden agrupar dispositivos según criterios específicos, como departamentos, funciones o ubicaciones geográficas, lo que permite controlar de manera más precisa el tráfico de red y mejorar la eficiencia en la transmisión de datos.
+
+    En este documento se realizará una práctica orientada a la implementación de VLAN's utilizando el simulador Cisco Packet Tracer, herramienta que permite diseñar, configurar y evaluar redes de manera segura y controlada. En esta práctica, se abordan conceptos fundamentales relacionados con la segmentación de redes, la asignación de direcciones IP y el establecimiento de comunicaciones específicas entre dispositivos.
 
     En el trabajo se detallan tanto los objetivos como los pasos específicos llevados a cabo para configurar VLAN's que simulan entornos empresariales reales. Desde la definición de las configuraciones iniciales en los switches hasta la asignación de dispositivos a las respectivas VLAN's, cada etapa del proceso busca consolidar habilidades prácticas en el diseño de redes eficientes. Asimismo, se evalúa la correcta funcionalidad de la segmentación de red mediante pruebas que comprueban la conectividad entre los equipos.
 
@@ -278,7 +280,7 @@
             \label{fig:ping_vlan2}
         \end{figure}
 
-        Para verificar el funcionamiento de la VLAN 4, la PC1 se conectó al puerto 10 del switch, y se le asignó manualmente la dirección IP \texttt{10.0.0.13/8}. Asimismo, la PC2 se conectó al puerto 12 del switch, y se le asignó manualmente la dirección IP \texttt{10.0.0.14/8}. Se realizó un ping entre ambas PC's, como se muestra en la figura~\ref{fig:ping_vlan4}.
+        Para verificar el funcionamiento de la VLAN 4, la PC1 se conectó al puerto 10 del switch, y se le asignó la dirección IP \texttt{10.0.0.13/8}. Asimismo, la PC2 se conectó al puerto 12 del switch, y se le asignó manualmente la dirección IP \texttt{10.0.0.14/8}. Se realizó un ping entre ambas PC's, como se muestra en la figura~\ref{fig:ping_vlan4}.
 
         \begin{figure}[H]
             \centering
