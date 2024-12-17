@@ -54,7 +54,7 @@
   keepspaces=true,                 % Mantiene los espacios en el texto. Es útil para mantener la indentación del código(puede necesitar columns=flexible).
   keywordstyle=\color{blue},       % estilo de las palabras clave
   otherkeywords={*,...},           % Si se quieren añadir otras palabras clave al lenguaje
-  numbers=left,                    % Posición de los números de línea (none, left, right).
+  numbers=none,                    % Posición de los números de línea (none, left, right).
   numbersep=8pt,                   % Distancia de los números de línea al código
   numberstyle=\tiny\color{gris}, % Estilo para los números de línea
   rulecolor=\color{black},         % Si no se activa, el color del marco puede cambiar en los saltos de línea entre textos que sea de otro color, por ejemplo, los comentarios, que están en verde en este ejemplo
@@ -89,7 +89,7 @@
 \renewcommand{\lstlistlistingname}{Lista de \lstlistingname s}
 % --- Para el manejo de referencias
 \usepackage{csquotes}
-\usepackage[backend=biber,citestyle=authoryear,style=apa]{biblatex}
+\usepackage[backend=biber,citestyle=authoryear,style=ieee]{biblatex}
 \bibliography{referencias}
 % Paquete para el manejo de apéndices
 \usepackage{appendix} % Para agregar apéndices
