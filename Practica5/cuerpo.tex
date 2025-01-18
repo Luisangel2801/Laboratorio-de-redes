@@ -2,7 +2,11 @@
 
 
 \section{Introducción}
-    En esta práctica se realizará el enrutamiento dinámico con base en el protocolo EIGRP (Enhanced Interior Gateway Routing Protocol). El protocolo EIGRP es un protocolo de enrutamiento avanzado de tipo híbrido, desarrollado por Cisco, que combina las mejores características de los protocolos de enrutamiento de vector de distancia y estado de enlace\cite{cisco} . El objetivo de la práctica es profundizar en el funcionamiento del enrutamiento dinámico y su implementación. Para ello, se configurarán los routers y se establecerán las rutas dinámicas mediante el protocolo EIGRP. Además, se configurará un servidor web para realizar pruebas de conectividad y se ajustarán los anchos de banda de las interfaces de los routers. La práctica permitirá comprender el funcionamiento del enrutamiento dinámico y su implementación en redes de computadoras.
+El enrutamiento dinámico es un proceso mediante el cual los routers intercambian información de enrutamiento y actualizan sus tablas de manera automática. Este enfoque permite que los routers se adapten dinámicamente a los cambios en la red, como la adición o eliminación de enlaces, asegurando la selección de las rutas más eficientes para el envío de paquetes de datos. Los protocolos de enrutamiento dinámico, como EIGRP, OSPF y RIP, facilitan el intercambio de información entre routers y el cálculo de las mejores rutas.
+
+El protocolo EIGRP (Enhanced Interior Gateway Routing Protocol) es un protocolo avanzado de enrutamiento híbrido, desarrollado por Cisco, que combina las mejores características de los protocolos de vector de distancia y estado de enlace. EIGRP utiliza métricas como el ancho de banda, la carga, la latencia y la fiabilidad para determinar las rutas más óptimas para los paquetes de datos. Gracias a su eficiencia y escalabilidad, EIGRP es ampliamente utilizado en redes de tamaño mediano y grande (\cite{cisco}).
+
+En esta práctica, se llevará a cabo la configuración del enrutamiento dinámico utilizando el protocolo EIGRP. El objetivo principal es profundizar en el funcionamiento e implementación de este protocolo. Para ello, se configurarán los routers y se establecerán rutas dinámicas empleando EIGRP. Además, se implementará un servidor web para realizar pruebas de conectividad, y se ajustarán los anchos de banda de las interfaces de los routers. Esta práctica permitirá comprender a fondo el funcionamiento del enrutamiento dinámico y su aplicación en redes de computadoras.
 \section{Objetivos}
     \begin{itemize}
         \item Realizar enrutamiento dinámico con base en el protocolo EIGRP.
@@ -10,11 +14,11 @@
     \end{itemize}
 
 \section{Desarrollo del Trabajo}
-    \subsection{Topología}
-        Para el Desarrollo de la práctica se ha planteado la siguiente topología de red, la cual se muestra en la Figura~\ref{fig:topologia}.
+    \subsection{Topología de red}
+        Para el Desarrollo de la práctica se ha planteado la siguiente topología de red, la cual se muestra en la Figura~\ref{fig:topologia} y se compone de tres routers y tres servidores. Los routers están conectados entre sí mediante enlaces seriales, y los servidores están conectado a un diferente router. La topología de red se ha diseñado de manera que los routers puedan intercambiar información de enrutamiento y establecer rutas dinámicas utilizando el protocolo EIGRP.
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.6\textwidth]{img/Topologia.png}
+        \includegraphics[width=0.8\textwidth]{img/Topologia.png}
         \caption{Topología de red}
         \label{fig:topologia}
     \end{figure}
