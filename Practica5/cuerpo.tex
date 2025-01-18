@@ -2,7 +2,7 @@
 
 
 \section{Introducción}
-    Ejemplo de cita~(\cite{buffett84}).
+    En esta práctica se realizará el enrutamiento dinámico con base en el protocolo EIGRP (Enhanced Interior Gateway Routing Protocol). El protocolo EIGRP es un protocolo de enrutamiento avanzado de tipo híbrido, desarrollado por Cisco, que combina las mejores características de los protocolos de enrutamiento de vector de distancia y estado de enlace\cite{cisco} . El objetivo de la práctica es profundizar en el funcionamiento del enrutamiento dinámico y su implementación. Para ello, se configurarán los routers y se establecerán las rutas dinámicas mediante el protocolo EIGRP. Además, se configurará un servidor web para realizar pruebas de conectividad y se ajustarán los anchos de banda de las interfaces de los routers. La práctica permitirá comprender el funcionamiento del enrutamiento dinámico y su implementación en redes de computadoras.
 \section{Objetivos}
     \begin{itemize}
         \item Realizar enrutamiento dinámico con base en el protocolo EIGRP.
@@ -25,25 +25,19 @@
     Para las wildcard necesarias a nuestro router asignado, realizaremos una tabla en la que se puede observar la dirección, la máscara y la wildcard de cada una de las direcciones de red asignadas. A continuación, se muestra la tabla con los cálculos realizados.
         \begin{table}[H]
             \centering
-            \begin{tabular}{|c|c|c|c|}
-                \hline
+            \begin{tabular}{c|c|c}
                 \textbf{Dirección} & \textbf{Máscara} & \textbf{Wildcard} \\
                 \hline
                 192.168.10.8 & 255.255.255.252 & 0.0.0.3 \\
-                \hline
-                \hline
                 192.168.10.4 & 255.255.255.252 & 0.0.0.3  \\
-                \hline
-                \hline
                 192.168.1.0 & 255.255.255.0 & 0.0.0.255 \\
-                \hline
             \end{tabular}
             \caption{Ejemplo de tabla con dirección IP, máscara, wildcard y dirección de red.}
         \end{table}
         Para obtener nuestra wildcard, utilizaremos la fórmula indicada por el profesor, en la cual restamos la máscara de subred de la dirección de broadcast de la siguiente manera:
 
         \begin{equation}
-            Wildcard = \texttt{255.255.255.255} - \texttt{255.255.255.252}
+            \textbf{Wildcard} = \texttt{255.255.255.255} - \texttt{255.255.255.252}
            \end{equation}
         
         Esta ecuación nos dará como resultado la wildcard necesaria para configurar nuestro router en las redes conectadas a él, las cuales requieren dicha configuración.
@@ -105,14 +99,16 @@
         \label{fig:prueba}
     \end{figure}
     En la imagen anterior, se puede observar la prueba del servidor. Al ingresar a la dirección IP del servidor en un navegador web, se muestra el mensaje de bienvenida configurado en el servidor. Esto indica que el servidor está funcionando correctamente y que la configuración se realizó de manera adecuada.
-    
-        
-    
 
 
 \section{Conclusiones}
+    \begin{itemize}
+        \item Diego Alexis Moreno Valero - 2243900185 \\
+        La práctica demostró la implementación exitosa del enrutamiento dinámico con el protocolo EIGRP, configurando routers, servidores y anchos de banda de forma eficiente. Se verificó la conectividad mediante pruebas funcionales, destacando la colaboración en redes complejas y las ventajas del protocolo en términos de eficiencia. Aunque se cumplieron los objetivos, es recomendable incluir análisis más profundos y métricas para validar los resultados. En general, el ejercicio consolidó conocimientos clave en diseño y administración de redes.
+        \item Luis Ángel Cruz Díaz - 2183038433 \\
+        La práctica permitió comprender el funcionamiento del enrutamiento dinámico y su implementación en redes de computadoras. Se logró configurar los routers y establecer las rutas dinámicas mediante el protocolo EIGRP. Además, se configuró un servidor web para realizar pruebas de conectividad y se ajustaron los anchos de banda de las interfaces de los routers. La práctica permitió profundizar en el enrutamiento dinámico y su implementación, así como en el cálculo del costo del enrutamiento de acuerdo a la trayectoria indicada por la tabla de enrutamiento.
+    \end{itemize}
 
-    Diego Alexis Moreno Valero - 2243900185: La práctica demostró la implementación exitosa del enrutamiento dinámico con el protocolo EIGRP, configurando routers, servidores y anchos de banda de forma eficiente. Se verificó la conectividad mediante pruebas funcionales, destacando la colaboración en redes complejas y las ventajas del protocolo en términos de eficiencia. Aunque se cumplieron los objetivos, es recomendable incluir análisis más profundos y métricas para validar los resultados. En general, el ejercicio consolidó conocimientos clave en diseño y administración de redes.
 
 % --- Para agregar un apéndice
 %\newpage
